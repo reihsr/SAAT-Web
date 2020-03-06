@@ -11,6 +11,7 @@
         <module>domain</module>
         <module>repository</module>
         <module>web</module>
+        <module>ui</module>
     </modules>
     <name>SAAT-Web</name>
     <description>Semi Automated Annotation Tool</description>

@@ -9,6 +9,7 @@
         <module name="web" />
         <module name="domain" />
         <module name="repository" />
+        <module name="ui" />
         <module name="service" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="domain" options="-parameters" />
       <module name="repository" options="-parameters" />
       <module name="service" options="-parameters" />
+      <module name="ui" options="-parameters" />
       <module name="web" options="-parameters" />
     </option>
   </component>
