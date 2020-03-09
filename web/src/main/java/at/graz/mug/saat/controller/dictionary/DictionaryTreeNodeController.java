@@ -19,6 +19,6 @@ public class DictionaryTreeNodeController {
     @GetMapping("dictionarytreenodes")
     public List<DictionaryTreeNode> getDictionaryTreeNode() {
         System.out.println("Call to service!");
-        return service.getDictionaryTreeNode();
+        return service.getDictionaryTreeNodes();
     }
 }
