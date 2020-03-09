@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "SAAT-Web": {
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -36,6 +37,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "tsConfig": "projects/core/tsconfig.lib.prod.json",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SAAT-Web"
+    }
+  },
+  "defaultProject": "SAAT-Web",
+  "cli": {
+    "analytics": "e3f370f6-ba2d-4e65-8767-e0678efaba8e"
+  }
 }

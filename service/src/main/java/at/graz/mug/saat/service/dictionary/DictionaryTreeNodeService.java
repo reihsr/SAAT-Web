@@ -19,8 +19,8 @@ public class DictionaryTreeNodeService {
     @PostConstruct
     public void initDictionaryTreeNode() {
         repository.saveAll(Stream.of
-                (new DictionaryTreeNode(1, "root", 0, 0, true, false, "", ""),
-                        new DictionaryTreeNode(2, "123", 0, 0, false, true, "ICD10", "C80.0")
+                (new DictionaryTreeNode(1, "root", 0, 0, true, false, true, false, true, false, true, "", "", "", false, 5),
+                        new DictionaryTreeNode(2, "123", 0, 0, false, true, true, false, true, false, true, "", "ICD10", "C80.0", false, 5)
                 ).collect(Collectors.toList()));
     }
 

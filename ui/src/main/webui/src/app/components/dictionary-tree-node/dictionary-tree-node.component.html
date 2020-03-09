@@ -1,0 +1,54 @@
+<p>dictionary-tree-node works!</p>
+
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Synonym</th>
+        <th scope="col">root</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dictionaryTreeNode of dictionaryTreeNodes">
+        <td>{{ dictionaryTreeNode.dictionary_id }}</td>
+        <td>{{ dictionaryTreeNode.synonym }}</td>
+        <td>{{ dictionaryTreeNode.root }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ngx-graph
+  class="chart-container"
+  [view]="[500, 200]"
+  [links]="[
+    {
+      id: 'a',
+      source: 'first',
+    target: 'second',
+      label: 'is parent of'
+    }, {
+      id: 'b',
+      source: 'first',
+      target: 'third',
+      label: 'custom label'
+    }
+  ]"
+  [nodes]="[
+    {
+      id: 'first',
+      label: 'A'
+    }, {
+      id: 'second',
+      label: 'B'
+    }, {
+      id: 'third',
+      label: 'C'
+    }
+  ]"
+>
+</ngx-graph>
+
