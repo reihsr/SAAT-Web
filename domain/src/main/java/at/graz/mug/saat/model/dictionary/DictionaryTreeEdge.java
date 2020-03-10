@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 public class DictionaryTreeEdge {
 
     @Id
+    @GeneratedValue
     private int edge_id;
     private int dictionary_id;
     private int child_dictionary_id;

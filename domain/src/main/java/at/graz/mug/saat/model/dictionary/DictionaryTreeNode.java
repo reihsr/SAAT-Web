@@ -3,13 +3,17 @@ package at.graz.mug.saat.model.dictionary;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+//TODO: https://www.baeldung.com/spring-data-rest-relationships#1-the-data-model-1
 
 @Data
 @ToString
 @Entity
 public class DictionaryTreeNode {
     @Id
+    @GeneratedValue
     private int dictionary_id;
     private String synonym;
     private int before_synonym;
