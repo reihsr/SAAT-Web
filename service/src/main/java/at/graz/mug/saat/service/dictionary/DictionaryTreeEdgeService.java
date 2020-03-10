@@ -18,8 +18,6 @@ public class DictionaryTreeEdgeService {
 
     @PostConstruct
     public void initDictionaryTreeEdge() {
-        repository.saveAll(Stream.of
-                (new DictionaryTreeEdge(1, 1, 2)).collect(Collectors.toList()));
     }
 
     public List<DictionaryTreeEdge> getDictionaryTreeEdges() {
