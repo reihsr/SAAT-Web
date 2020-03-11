@@ -6,10 +6,12 @@ import lombok.ToString;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @ToString
 @Entity
+@Table(name = "dictionary_link_dictionary", schema = "saat")
 public class DictionaryTreeEdge {
 
     @Id
