@@ -1,0 +1,95 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-mugprimary: (
+  50 : #e0efe7,
+  100 : #b3d7c2,
+  200 : #80bc9a,
+  300 : #34b233,
+  400 : #268d52,
+  500 : #007934,
+  600 : #00712f,
+  700 : #006627,
+  800 : #005c21,
+  900 : #004915,
+  A100 : #7dff94,
+  A200 : #4aff6a,
+  A400 : #17ff40,
+  A700 : #00fc2c,
+  contrast: (
+    50 : #1b242a,
+    100 : #1b242a,
+    200 : #1b242a,
+    300 : #1b242a,
+    400 : #9a9b9c,
+    500 : #9a9b9c,
+    600 : #9a9b9c,
+    700 : #bcbdbc,
+    800 : #bcbdbc,
+    900 : #bcbdbc,
+    A100 : #4d4f53,
+    A200 : #4d4f53,
+    A400 : #4d4f53,
+    A700 : #4d4f53,
+  )
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$mat-mugaccent: (
+  50 : #fff0e9,
+  100 : #ffd9c7,
+  200 : #ffbfa2,
+  300 : #ffa57d,
+  400 : #ff9261,
+  500 : #ff7f45,
+  600 : #ff773e,
+  700 : #ff6c36,
+  800 : #ff622e,
+  900 : #ff4f1f,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffd8ce,
+  A700 : #ffc3b5,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$SAAT-Web-primary: mat-palette($mat-mugprimary);
+$SAAT-Web-accent: mat-palette($mat-mugaccent);
+
+// The warn palette is optional (defaults to red).
+$SAAT-Web-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$SAAT-Web-theme: mat-light-theme($SAAT-Web-primary, $SAAT-Web-accent, $SAAT-Web-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($SAAT-Web-theme);
+

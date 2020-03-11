@@ -2,10 +2,8 @@ package at.graz.mug.saat.model.dictionary;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 //TODO: https://www.baeldung.com/spring-data-rest-relationships#1-the-data-model-1
 
@@ -16,29 +14,53 @@ import javax.persistence.Table;
 public class DictionaryTreeNode {
     @Id
     @GeneratedValue
-    private int dictionary_id;
+    private Integer dictionary_id;
+    @Column(nullable = true)
     private String synonym;
-    private int before_synonym;
-    private int after_synonym;
-    private boolean foreword;
-    private boolean ending;
-    private boolean sentence;
-    private boolean occur;
-    private boolean root;
-    private boolean iscode;
-    private boolean negation;
+    @Column(nullable = true)
+    private Integer before_synonym;
+    @Column(nullable = true)
+    private Integer after_synonym;
+    @Column(nullable = true)
+    private Boolean foreword;
+    @Column(nullable = true)
+    private Boolean ending;
+    @Column(nullable = true)
+    private Boolean sentence;
+    @Column(nullable = true)
+    private Boolean occur;
+    @Column(nullable = true)
+    private Boolean root;
+    @Column(nullable = true)
+    private Boolean iscode;
+    @Column(nullable = true)
+    private Boolean negation;
+    @Column(nullable = true)
     private String pattern;
+    @Column(nullable = true)
     private String code_typ;
+    @Column(nullable = true)
     private String code_value;
-    private boolean priority_node;
-    private int priority;
+    @Column(nullable = true)
+    private Boolean priority_node;
+    @Column(nullable = true)
+    private Integer priority;
+
+    @OneToMany(mappedBy = "parent")
+    private List<DictionaryTreeNode> childes;
+
+    @ManyToOne
+    @JoinTable(name = "dictionary_link_dictionary",
+            joinColumns = @JoinColumn(name = "dictionary_id", referencedColumnName = "dictionary_id"),
+            inverseJoinColumns = @JoinColumn(name = "child_dictionary_id", referencedColumnName = "dictionary_id"))
+    private DictionaryTreeNode parent;
 
     public DictionaryTreeNode() {
     }
 
-    public DictionaryTreeNode(int dictionary_id, String synonym, int before_synonym, int after_synonym, boolean foreword,
-                              boolean ending, boolean sentence, boolean occur, boolean root, boolean iscode, boolean negation, String pattern,
-                              String code_typ, String code_value, boolean priority_node, int priority) {
+    public DictionaryTreeNode(Integer dictionary_id, String synonym, Integer before_synonym, Integer after_synonym, Boolean foreword,
+                              Boolean ending, Boolean sentence, Boolean occur, Boolean root, Boolean iscode, Boolean negation, String pattern,
+                              String code_typ, String code_value, Boolean priority_node, Integer priority) {
         this.dictionary_id = dictionary_id;
         this.synonym = synonym;
         this.before_synonym = before_synonym;
