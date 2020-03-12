@@ -46,14 +46,14 @@ public class DictionaryTreeNode {
     @Column(nullable = true)
     private Integer priority;
 
-    @OneToMany(mappedBy = "parent")
+    @ManyToMany(mappedBy = "parent")
     private List<DictionaryTreeNode> childes;
 
-    @ManyToOne
+    @ManyToMany
     @JoinTable(name = "dictionary_link_dictionary",
             joinColumns = @JoinColumn(name = "dictionary_id", referencedColumnName = "dictionary_id"),
             inverseJoinColumns = @JoinColumn(name = "child_dictionary_id", referencedColumnName = "dictionary_id"))
-    private DictionaryTreeNode parent;
+    private List<DictionaryTreeNode> parent;
 
     public DictionaryTreeNode() {
     }

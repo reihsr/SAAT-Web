@@ -22,7 +22,7 @@ public class DictionaryTreeNodeService {
     }
 
     public List<DictionaryTreeNode> getDictionaryTreeNodes() {
-        List<DictionaryTreeNode> list = repository.findRootNodes();
+        List<DictionaryTreeNode> list = repository.findByRoot(true);
         return list;
     }
 }
