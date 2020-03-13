@@ -46,14 +46,31 @@ public class DictionaryTreeNode {
     @Column(nullable = true)
     private Integer priority;
 
-    @ManyToMany(mappedBy = "parent")
+    //https://stackoverflow.com/questions/15216321/jpa-self-join-using-jointable
+
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @JoinTable(name = "dictionary_link_dictionary",
+            joinColumns = { @JoinColumn(name = "INCENTIVEITEMID", referencedColumnName = "ITEMID", insertable = false, updatable = false) },
+            inverseJoinColumns = { @JoinColumn(name = "ITEMID", referencedColumnName = "ITEMID", insertable = false, updatable = false) } )
+    private DictionaryTreeNode parent;
+
+    @OneToMany(
+            cascade = {CascadeType.ALL},
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JoinTable(name = "dictionary_link_dictionary",
+            joinColumns = { @JoinColumn(name = "INCENTIVEITEMID", referencedColumnName = "ITEMID") },
+            inverseJoinColumns = { @JoinColumn(name = "ITEMID", referencedColumnName = "ITEMID") } )
     private List<DictionaryTreeNode> childes;
+
+    /*private List<DictionaryTreeNode> childes;
 
     @ManyToMany
     @JoinTable(name = "dictionary_link_dictionary",
             joinColumns = @JoinColumn(name = "dictionary_id", referencedColumnName = "dictionary_id"),
             inverseJoinColumns = @JoinColumn(name = "child_dictionary_id", referencedColumnName = "dictionary_id"))
-    private List<DictionaryTreeNode> parent;
+    private List<DictionaryTreeNode> parent;*/
 
     public DictionaryTreeNode() {
     }
