@@ -13,15 +13,20 @@ public class DictionaryTreeEdge {
 
     @Id
     @GeneratedValue
-    private int edge_id;
-    private int dictionary_id;
-    private int child_dictionary_id;
+    private Integer edge_id;
+    @Column(name="dictionary_id")
+    private Integer dictionaryid;
+    private Integer child_dictionary_id;
 
     public DictionaryTreeEdge() {}
 
-    public DictionaryTreeEdge(int edge_id, int dictionary_id, int child_dictionary_id) {
+    public DictionaryTreeEdge(int edge_id, int dictionaryid, int child_dictionary_id) {
         this.edge_id = edge_id;
-        this.dictionary_id = dictionary_id;
+        this.dictionaryid = dictionaryid;
         this.child_dictionary_id = child_dictionary_id;
+    }
+
+    public Integer getChildDictionaryId() {
+        return child_dictionary_id;
     }
 }

@@ -3,6 +3,7 @@ package at.graz.mug.saat.model.dictionary;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 //TODO: https://www.baeldung.com/spring-data-rest-relationships#1-the-data-model-1
@@ -12,8 +13,9 @@ import java.util.List;
 @Table(name = "dictionary", schema = "saat")
 @Entity
 public class DictionaryTreeNode {
-    @Id
-    @GeneratedValue
+
+    @Id()
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer dictionary_id;
     @Column(nullable = true)
     private String synonym;
@@ -46,34 +48,10 @@ public class DictionaryTreeNode {
     @Column(nullable = true)
     private Integer priority;
 
-    //https://stackoverflow.com/questions/15216321/jpa-self-join-using-jointable
+    @Transient
+    private List<Integer> childes = new ArrayList<Integer>();
 
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinTable(name = "dictionary_link_dictionary",
-            joinColumns = { @JoinColumn(name = "INCENTIVEITEMID", referencedColumnName = "ITEMID", insertable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "ITEMID", referencedColumnName = "ITEMID", insertable = false, updatable = false) } )
-    private DictionaryTreeNode parent;
-
-    @OneToMany(
-            cascade = {CascadeType.ALL},
-            orphanRemoval = true,
-            fetch = FetchType.LAZY
-    )
-    @JoinTable(name = "dictionary_link_dictionary",
-            joinColumns = { @JoinColumn(name = "INCENTIVEITEMID", referencedColumnName = "ITEMID") },
-            inverseJoinColumns = { @JoinColumn(name = "ITEMID", referencedColumnName = "ITEMID") } )
-    private List<DictionaryTreeNode> childes;
-
-    /*private List<DictionaryTreeNode> childes;
-
-    @ManyToMany
-    @JoinTable(name = "dictionary_link_dictionary",
-            joinColumns = @JoinColumn(name = "dictionary_id", referencedColumnName = "dictionary_id"),
-            inverseJoinColumns = @JoinColumn(name = "child_dictionary_id", referencedColumnName = "dictionary_id"))
-    private List<DictionaryTreeNode> parent;*/
-
-    public DictionaryTreeNode() {
-    }
+    public DictionaryTreeNode() {}
 
     public DictionaryTreeNode(Integer dictionary_id, String synonym, Integer before_synonym, Integer after_synonym, Boolean foreword,
                               Boolean ending, Boolean sentence, Boolean occur, Boolean root, Boolean iscode, Boolean negation, String pattern,
@@ -94,5 +72,25 @@ public class DictionaryTreeNode {
         this.code_value = code_value;
         this.priority_node = priority_node;
         this.priority = priority;
+    }
+
+    public String getSynonym() {
+        return synonym;
+    }
+
+    public Integer getDictionaryId() {
+        return dictionary_id;
+    }
+
+    public List<Integer> getChildes() {
+        return childes;
+    }
+
+    public void addChild(Integer dictionaryTreeNodeId) {
+        childes.add(dictionaryTreeNodeId);
+    }
+
+    public void addChild(List<Integer> dictionaryTreeNodeIds) {
+        childes.addAll(dictionaryTreeNodeIds);
     }
 }
