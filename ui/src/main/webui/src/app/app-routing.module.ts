@@ -4,7 +4,7 @@ import { DictionaryTreeNodeComponent } from './components/dictionary-tree-node/d
 
 
 const routes: Routes = [
-  { path: 'dictionary', component: DictionaryTreeNodeComponent }
+  { path: '', component: DictionaryTreeNodeComponent }
 ];
 
 @NgModule({

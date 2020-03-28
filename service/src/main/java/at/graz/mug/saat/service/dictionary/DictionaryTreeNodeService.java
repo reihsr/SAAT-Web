@@ -24,7 +24,7 @@ public class DictionaryTreeNodeService {
 
     @PostConstruct
     public void initDictionaryTreeNode() {
-        directoryCache = DirectoryCache.getInstance();
+        directoryCache = DirectoryCache.getInstance(node_repository, link_repository);
     }
 
     public List<DictionaryTreeNode> getDictionaryTreeNodes() {

@@ -4,15 +4,15 @@ import at.graz.mug.saat.dao.directory.DictionaryTreeEdgeRepository;
 import at.graz.mug.saat.dao.directory.DictionaryTreeNodeRepository;
 import at.graz.mug.saat.model.dictionary.DictionaryTreeEdge;
 import at.graz.mug.saat.model.dictionary.DictionaryTreeNode;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 @Service
+@Transactional
 public class DirectoryCache {
 
     private static DirectoryCache directoryCache = null;
@@ -20,39 +20,46 @@ public class DirectoryCache {
     private HashMap<Integer, DictionaryTreeNode> root_nodes = new HashMap<Integer, DictionaryTreeNode>();
     private HashMap <Integer, DictionaryTreeNode> childe_nodes = new HashMap<Integer, DictionaryTreeNode>();
 
-    @Autowired
     private DictionaryTreeNodeRepository node_repository;
-    @Autowired
     private DictionaryTreeEdgeRepository link_repository;
 
-    @PostConstruct
-    public void initDirectoryCache() {
-        if(directoryCache == null) {
-            directoryCache = new DirectoryCache();
+    private boolean tree_init = false;
+
+    public DirectoryCache(DictionaryTreeNodeRepository node_repository, DictionaryTreeEdgeRepository link_repository) {
+        this.node_repository = node_repository;
+        this.link_repository = link_repository;
+        if(tree_init == false) {
+            tree_init = true;
+            initDirectoryCache();
         }
     }
 
     private DirectoryCache() {
-        try {
-            List<DictionaryTreeNode> root_nodes_list = node_repository.findByRoot(true);
-            for (DictionaryTreeNode root_node : root_nodes_list) {
-                root_node.addChild(recursiveBuildTree(root_node.getDictionaryId()));
-            }
-        } catch (Exception ex) {
-            System.err.println("Error Creating directory.");
-            ex.printStackTrace();
-        }
+
     }
 
-    public static DirectoryCache getInstance() {
+    public static DirectoryCache getInstance(DictionaryTreeNodeRepository node_repository, DictionaryTreeEdgeRepository link_repository) {
         if(directoryCache == null) {
-            directoryCache = new DirectoryCache();
+            directoryCache = new DirectoryCache(node_repository, link_repository);
         }
         return directoryCache;
     }
 
     public List<DictionaryTreeNode> getRootNodes() {
-        return (List<DictionaryTreeNode>) root_nodes.values();
+        return new ArrayList<DictionaryTreeNode>(root_nodes.values());
+    }
+
+    private void initDirectoryCache() {
+        try {
+            List<DictionaryTreeNode> root_nodes_list = node_repository.findByRoot(true);
+            for (DictionaryTreeNode root_node : root_nodes_list) {
+                root_node.addChild(recursiveBuildTree(root_node.getDictionaryId()));
+                root_nodes.put(root_node.getDictionaryId(), root_node);
+            }
+        } catch (Exception ex) {
+            System.err.println("Error Creating directory.");
+            ex.printStackTrace();
+        }
     }
 
     private List<Integer> recursiveBuildTree(Integer dictionaryId) {
