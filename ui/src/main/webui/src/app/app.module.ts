@@ -15,11 +15,13 @@ import { NgxGraphModule } from '@swimlane/ngx-graph'
 import { AppRoutingModule } from './app-routing.module';
 import { DictionaryTreeNodeComponent } from './components/dictionary-tree-node/dictionary-tree-node.component';
 import { DictionaryTreeNodeService } from './service/dictionary-tree-node.service';
+import { DictionaryTeeNodeListComponent } from './components/dictionary-tee-node-list/dictionary-tee-node-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DictionaryTreeNodeComponent
+    DictionaryTreeNodeComponent,
+    DictionaryTeeNodeListComponent
   ],
   imports: [
     BrowserModule,

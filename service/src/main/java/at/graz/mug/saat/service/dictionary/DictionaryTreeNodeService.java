@@ -15,12 +15,15 @@ import java.util.List;
 @Service
 public class DictionaryTreeNodeService {
 
-    @Autowired
-    private DictionaryTreeNodeRepository node_repository;
-    @Autowired
-    private DictionaryTreeEdgeRepository link_repository;
+    private final DictionaryTreeNodeRepository node_repository;
+    private final DictionaryTreeEdgeRepository link_repository;
 
     DirectoryCache directoryCache = null;
+
+    public DictionaryTreeNodeService(DictionaryTreeNodeRepository node_repository, DictionaryTreeEdgeRepository link_repository ) {
+        this.node_repository = node_repository;
+        this.link_repository = link_repository;
+    }
 
     @PostConstruct
     public void initDictionaryTreeNode() {
