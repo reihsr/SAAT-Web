@@ -33,4 +33,12 @@ public class DictionaryTreeNodeService {
     public List<DictionaryTreeNode> getDictionaryTreeNodes() {
         return directoryCache.getRootNodes();
     }
+
+    public List<DictionaryTreeNode> getDictionaryTreeNodes(String startswith) {
+        return directoryCache.getRootNodes(startswith);
+    }
+
+    public List<DictionaryTreeNode> getDictionaryTreeNodes(Integer parentId) {
+        return directoryCache.getChildNodes(parentId);
+    }
 }

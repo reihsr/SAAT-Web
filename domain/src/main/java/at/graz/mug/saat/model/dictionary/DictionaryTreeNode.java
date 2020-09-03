@@ -1,5 +1,6 @@
 package at.graz.mug.saat.model.dictionary;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;

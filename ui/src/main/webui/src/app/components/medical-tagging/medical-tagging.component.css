@@ -1,0 +1,26 @@
+.page {
+  display: grid;
+  grid-template-rows: 70vh 20vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "diagnosis diagnosis diagnosis taggs taggs"
+                        "classification classification classification classification controles";
+}
+
+.page-diagnosis {
+  grid-area: diagnosis;
+  background-color: #00fc2c;
+}
+
+.page-taggs {
+  grid-area: taggs;
+  background-color: #6196cc;
+}
+
+.page-classification {
+  grid-area: classification;
+  background-color: #aaffaa;
+}
+.page-controles {
+  grid-area: controles;
+  background-color: #fb8817;
+}

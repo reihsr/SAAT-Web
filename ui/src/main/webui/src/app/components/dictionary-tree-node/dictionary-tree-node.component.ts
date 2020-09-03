@@ -1,38 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DictionaryTreeNode } from '../../model/dictionary-tree-node';
 
 @Component({
-  selector: 'app-dictionary-tree-node',
+  selector: 'app-saat-dictionary-tree-node',
   templateUrl: './dictionary-tree-node.component.html',
   styleUrls: ['./dictionary-tree-node.component.css']
 })
 export class DictionaryTreeNodeComponent implements OnInit {
 
-  public dictionaryTreeNode$: DictionaryTreeNode;
+  @Input() dictionaryTreeNode$: DictionaryTreeNode;
+  public edit: boolean;
 
   constructor() {
-    this.dictionaryTreeNode$ = {
-      dictionary_id: 1,
-      synonym: 'Synonym',
-      before_synonym: 0,
-      after_synonmy: 0,
-      foreword: false,
-      ending: false,
-      sentence: false,
-      occure: false,
-      root: false,
-      iscode: false,
-      negation: false,
-      pattern: 'pattern',
-      code_typ: 'code_typ',
-      code_value: 'code_value',
-      priority_node: false,
-      priority: 1
-    };
+    this.edit = false;
   }
 
   ngOnInit(): void {
 
   }
 
+  public changeLabel(event?: any): void {
+    /*this._dataService.putToDo(this.toDo$).subscribe((data: ToDo) => {
+      this._dataService.getGlobalData();
+    }, error => {
+      console.log(`%cERROR: ${error.message}`, `color: red; font-size: 12px;`);
+    });*/
+  }
+
+  public changeEditMode(event?: any):void {
+    this.edit = !this.edit;
+  }
 }

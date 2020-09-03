@@ -8,17 +8,25 @@ import { Observable } from 'rxjs';
 })
 export class DictionaryTreeNodeService {
 
-  private dictionaryTreeNodeUrl: string;
+  private apibaseurl: string;
+  private dictionaryTreeRootNodesUrl: string;
+  private dictionaryTreeChildNodesUrl: string;
 
   constructor(private http: HttpClient) {
-    this.dictionaryTreeNodeUrl = 'http://localhost:8080/dictionarytreenodes'
+    this.apibaseurl = 'http://localhost:8080/';
+    this.dictionaryTreeRootNodesUrl = 'rootnodesstartingwith?startswith=M';
+    this.dictionaryTreeChildNodesUrl = 'getchildnodes?parentId=';
   }
 
-  public findAll(): Observable<DictionaryTreeNode[]> {
-    return this.http.get<DictionaryTreeNode[]>(this.dictionaryTreeNodeUrl);
+  public getRootNodes(): Observable<DictionaryTreeNode[]> {
+    return this.http.get<DictionaryTreeNode[]>(this.apibaseurl + this.dictionaryTreeRootNodesUrl);
+  }
+
+  public getChildNodes(parentId: number): Observable<DictionaryTreeNode[]> {
+    return this.http.get<DictionaryTreeNode[]>(this.apibaseurl + this.dictionaryTreeChildNodesUrl + parentId);
   }
 
   public save(dictionaryTreeNode: DictionaryTreeNode) {
-    return this.http.post<DictionaryTreeNode>(this.dictionaryTreeNodeUrl, dictionaryTreeNode);
+    return this.http.post<DictionaryTreeNode>(this.apibaseurl + this.dictionaryTreeRootNodesUrl, dictionaryTreeNode);
   }
 }

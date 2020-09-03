@@ -1,0 +1,72 @@
+.dictionary-node-card {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border-radius: .25rem;
+  margin: 5px;
+  width: 400px;
+}
+
+.dictionary-node-card-body {
+  border: 1px solid inherit;
+}
+
+.dictionary-node-card-edit {
+  border: 3px solid #dd1144;
+}
+
+<!-- Base Node -->
+.dictionary-node-card-base {
+  border: 1px solid #007934;
+}
+
+.dictionary-node-card-header-base {
+  background-color: #007934;
+  color: #ffffff;
+  padding: 3px;
+}
+
+.dictionary-node-card-header input {
+  width: 100%;
+  border: none;
+  word-break: break-word;
+  background-color: #007934;
+  color: #ffffff;
+}
+
+<!-- Root Node -->
+.dictionary-node-card-root {
+  border: 1px solid #ff7f45;
+  color: red;
+}
+
+.dictionary-node-card-header-root {
+  background-color: #ff7f45;
+  border-radius: .25rem .25rem 0 0;
+}
+
+.dictionary-node-card-header-root input {
+  width: 100%;
+  border: none;
+  word-break: break-word;
+  background-color: #ff7f45;
+  color: #ffffff;
+}
+
+<!-- Negation Node -->
+.dictionary-node-card-negation {
+  border: 1px solid #dd1144;
+}
+
+.dictionary-node-card-header-negation {
+  background-color: #dd1144;
+  color: #ffffff;
+}
+
+<!-- Code Node -->
+.dictionary-node-card-header-code {
+  background-color: #34b233;
+}
+

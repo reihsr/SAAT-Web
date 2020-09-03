@@ -1,14 +1,49 @@
+<div style="display: flex;flex-direction: row;">
+  <div class="dictionary-node-card"
+       [ngClass]="{'dictionary-node-card-root': dictionaryTreeNode$.root,
+                  'dictionary-node-card-negation': dictionaryTreeNode$.negation,
+                  'dictionary-node-card-base': !dictionaryTreeNode$.root && !dictionaryTreeNode$.negation}"
+       [class.dictionary-node-card-edit]="edit">
+
+    <div class="dictionary-node-card-header"
+         [ngClass]="{'dictionary-node-card-header-root': dictionaryTreeNode$.root,
+                  'dictionary-node-card-header-negation': dictionaryTreeNode$.negation,
+                  'dictionary-node-card-header-base': !dictionaryTreeNode$.root && !dictionaryTreeNode$.negation}" style="display: flex;flex-direction: row;">
+      <span style="width: 80%;">
+        <input [disabled]="!edit" type="text" [(ngModel)]="dictionaryTreeNode$.synonym" (blur)="changeLabel($event)">
+      </span>
+      <span style="width: 20%;text-align: right;">
+        {{ dictionaryTreeNode$.dictionary_id }}
+        <i (click)="changeEditMode($event)" class="material-icons" style="font-size:12px;cursor: pointer;">edit</i>
+      </span>
+    </div>
 
 
-<div class="card">
-  <div class="card-header">
-    {{ dictionaryTreeNode$.synonym }}
+    <div class="dictionary-node-card-body">
+      <div style="display: flex;">
+        <div style="display: flex;flex-direction: row;width: 10%;">{{ dictionaryTreeNode$.before_synonym }}</div>
+        <div style="display: flex;flex-direction: row;width: 80%;">{{ dictionaryTreeNode$.pattern }}</div>
+        <div style="display: flex;flex-direction: row;width: 10%;">{{ dictionaryTreeNode$.after_synonmy }}</div>
+      </div>
+      <div style="display: flex;">
+        <div style="display: flex;flex-direction: row;width: 33%;">Foreword:{{ dictionaryTreeNode$.foreword }}</div>
+        <div style="display: flex;flex-direction: row;width: 33%;">Sentence:{{ dictionaryTreeNode$.sentence }}</div>
+        <div style="display: flex;flex-direction: row;width: 34%;">Negation:{{ dictionaryTreeNode$.negation }}</div>
+      </div>
+      <div style="display: flex;">
+        <div style="display: flex;flex-direction: row;width: 33%;">Ending:{{ dictionaryTreeNode$.ending }}</div>
+        <div style="display: flex;flex-direction: row;width: 33%;">Occure{{ dictionaryTreeNode$.occure }}</div>
+        <div style="display: flex;flex-direction: row;width: 34%;">
+          Priority:
+          {{ dictionaryTreeNode$.priority_node }}
+          <span *ngIf="dictionaryTreeNode$.priority_node">| {{ dictionaryTreeNode$.priority }}</span>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+  <div style="display: flex;flex-direction: column" >
+    <app-saat-dictionary-tee-node-list *ngIf="!dictionaryTreeNode$.iscode" [perentNodeId$]="dictionaryTreeNode$.dictionary_id"></app-saat-dictionary-tee-node-list>
   </div>
 </div>
-
-
