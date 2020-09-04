@@ -1,9 +1,15 @@
 .page {
   display: grid;
-  grid-template-rows: 70vh 20vh;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "diagnosis diagnosis diagnosis taggs taggs"
-                        "classification classification classification classification controles";
+  grid-template-rows: 5vh 70vh 20vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "selector selector selector selector selector selector"
+                        "diagnosis diagnosis diagnosis diagnosis taggs taggs"
+                        "classification classification classification classification classification controles";
+}
+
+.page-selector {
+  grid-area: selector;
+  background-color: aquamarine;
 }
 
 .page-diagnosis {

@@ -1,0 +1,15 @@
+.mat-toolbar.mat-primary {
+  color: #f5f5f5;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 5vh;
+}
+
+.mat-toolbar-multiple-rows {
+  min-height: 5vh;
+}
+
+.active-link {
+  background-color: #005c21;
+}

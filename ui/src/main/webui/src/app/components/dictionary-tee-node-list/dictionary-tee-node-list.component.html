@@ -1,1 +1,8 @@
+<mat-toolbar-row>
+  <span class="menu-spacer">Rood Nodes:</span>
+  <a mat-button [routerLink]="'/directory/a'"> A </a>
+  <a mat-button [routerLink]="'/directory/b'"> B </a>
+  <a mat-button [routerLink]="'/directory/c'"> C </a>
+</mat-toolbar-row>
+
 <app-saat-dictionary-tree-node [dictionaryTreeNode$]="dictionaryTreeNode" *ngFor="let dictionaryTreeNode of dictionaryTreeNodes"></app-saat-dictionary-tree-node>

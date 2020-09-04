@@ -2,29 +2,21 @@
 <!-- Top Navigation -->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
+    <!--<button mat-icon-button>
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
-    </button>
-    <h1>{{title}}</h1>
+    </button>-->
+    <h3>{{title}}</h3>
     <span class="menu-spacer"></span>
     <div>
-      <a mat-button [routerLink]="'/'"> Dictionary </a>
-      <a mat-button [routerLink]="'/diagnosis'"> Diagnosis </a>
-      <a mat-button [routerLink]="'/tagging'"> Medical Tagging Tool </a>
-
+      <a mat-button [routerLink]="'/'" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}"> Dictionary </a>
+      <a mat-button [routerLink]="'/diagnosis'" routerLinkActive="active-link"> Diagnosis </a>
+      <a mat-button [routerLink]="'/tagging'" routerLinkActive="active-link"> Medical Tagging Tool </a>
     </div>
-  </mat-toolbar-row>
-
-  <mat-toolbar-row>
-    <span class="menu-spacer">Rood Nodes:</span>
-    <a mat-button [routerLink]="'/accounts'"> A </a>
-    <a mat-button [routerLink]="'/accounts'"> B </a>
-    <a mat-button [routerLink]="'/accounts'"> C </a>
   </mat-toolbar-row>
 </mat-toolbar>
 <!-- Top Navigation END -->
 
-<!-- Side Navigation -->
+<!-- Side Navigation
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
     <mat-nav-list>
@@ -42,10 +34,11 @@
   <mat-sidenav-content>
     <div style="height: 88vh;">
 
-      <router-outlet></router-outlet>
+
     </div>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container>-->
 <!-- Side Navigation END -->
+<router-outlet></router-outlet>
 
 
