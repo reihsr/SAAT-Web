@@ -1,4 +1,4 @@
-package at.graz.mug.saat.service.diagnosisRepository;
+package at.graz.mug.saat.service.diagnosis;
 
 import at.graz.mug.saat.dao.diagnosisRepository.DiagnosisRepository;
 import at.graz.mug.saat.model.diagnosisRepository.Diagnosis;

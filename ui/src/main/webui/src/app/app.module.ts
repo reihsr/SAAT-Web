@@ -20,6 +20,8 @@ import { DictionaryTeeNodeListComponent } from './components/dictionary-tee-node
 import { DiagnosisComponent } from './components/diagnosis/diagnosis.component';
 import { DiagnosisListComponent } from './components/diagnosis-list/diagnosis-list.component';
 import { MedicalTaggingComponent } from './components/medical-tagging/medical-tagging.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+import { OverlayComponent } from './components/overlay/overlay.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MedicalTaggingComponent } from './components/medical-tagging/medical-ta
     DictionaryTeeNodeListComponent,
     DiagnosisComponent,
     DiagnosisListComponent,
-    MedicalTaggingComponent
+    MedicalTaggingComponent,
+    OverlayComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { MedicalTaggingComponent } from './components/medical-tagging/medical-ta
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    NgxGraphModule
+    NgxGraphModule,
+    OverlayModule
   ],
   providers: [DictionaryTreeNodeService],
   bootstrap: [AppComponent]

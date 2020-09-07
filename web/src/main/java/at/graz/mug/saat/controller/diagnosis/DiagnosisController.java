@@ -1,7 +1,7 @@
-package at.graz.mug.saat.controller.diagnosisRepository;
+package at.graz.mug.saat.controller.diagnosis;
 
 import at.graz.mug.saat.model.diagnosisRepository.Diagnosis;
-import at.graz.mug.saat.service.diagnosisRepository.DiagnosisService;
+import at.graz.mug.saat.service.diagnosis.DiagnosisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
