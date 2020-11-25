@@ -18,13 +18,8 @@ import javax.persistence.Table;
 @Table(name = "token", schema = "saat")
 public class Token extends BaseEntity {
 
-    private String token;
     private String category;
     private String lemma;
     private String tag;
-    private Integer sentence_count;
-    private Integer begin_position;
-    private Integer end_position;
-    private String field;
 
 }
