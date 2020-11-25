@@ -12,6 +12,7 @@
         <module>repository</module>
         <module>web</module>
         <module>ui</module>
+        <module>extraction</module>
     </modules>
     <name>SAAT-Web</name>
     <description>Semi Automated Annotation Tool</description>

@@ -12,6 +12,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="repository" />
         <module name="ui" />
+        <module name="extraction" />
         <module name="web" />
         <module name="service" />
         <module name="domain" />
@@ -21,6 +22,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="domain" options="-parameters" />
+      <module name="extraction" options="-parameters" />
       <module name="repository" options="-parameters" />
       <module name="service" options="-parameters" />
       <module name="ui" options="-parameters" />

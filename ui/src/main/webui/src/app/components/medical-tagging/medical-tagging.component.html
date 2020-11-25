@@ -1,6 +1,38 @@
 <div class="page">
   <div class="page-selector">selector</div>
-  <div class="page-diagnosis">diagnosis</div>
+  <div class="page-diagnosis">diagnosis
+
+    <div class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column has-text-left">
+            String content modal overlay
+          </div>
+          <div class="column is-narrow">
+            <button (click)="open(content)" class="button is-small is-primary">
+              show
+            </button>
+          </div>
+          <div class="column"></div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #tpl let-close="close">
+      <div class="modal-card">
+        <section class="modal-card-body">
+          A yes no dialog, using template
+        </section>
+        <footer class="modal-card-foot">
+          <div class="buttons is-right">
+            <button (click)="close('yes')" type="button" class="button is-success">Yes</button>
+            <button (click)="close('no')" type="button" class="button is-danger">No</button>
+          </div>
+        </footer>
+      </div>
+    </ng-template>
+
+  </div>
   <div class="page-taggs">taggs</div>
   <div class="page-classification">classification</div>
   <div class="page-controles">controles</div>
