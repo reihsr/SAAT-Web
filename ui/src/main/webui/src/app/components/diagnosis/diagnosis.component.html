@@ -1,8 +1,14 @@
 <div style="display: flex;flex-direction: column;border: 2px solid #4183c4; margin: 5px 5px 10px 5px;background-color: #f5f5f5; border-radius: 3px;">
-  <div style="display: flex;flex-direction: row;border-bottom: 1px solid #4183c4;">
-    <div style="padding: 3px;width: 30%;">ID: {{ diagnosis.befund_id }}</div>
-    <div style="padding: 3px;width: 40%;">Source: {{ diagnosis.source }}</div>
-    <div style="padding: 3px;width: 30%;">Age: {{ diagnosis.age }}</div>
+  <div style="display: flex;flex-direction: row;flex-wrap: wrap;border-bottom: 1px solid #4183c4;">
+    <div style="padding: 3px;width: 20%;">ID: {{ diagnosis.befund_id }}</div>
+    <div style="padding: 3px;width: 20%;">Source: {{ diagnosis.source }}</div>
+    <div style="padding: 3px;width: 20%;">Age: {{ diagnosis.age }}</div>
+    <div style="padding: 3px;width: 20%;">Type: {{ diagnosis.examination_type }}</div>
+    <div style="padding: 3px;width: 20%;">ID: {{ diagnosis.finding_id }}</div>
+    <div style="padding: 3px;width: 20%;">AURA Index: {{ diagnosis.aura_index }}</div>
+    <div style="padding: 3px;width: 20%;">Patient Id: {{ diagnosis.patient_id }}</div>
+    <div style="padding: 3px;width: 40%;">Organ: {{ diagnosis.organ }} / {{ diagnosis.organ_zuordnung }}</div>
+    <div style="padding: 3px;width: 20%;">Examination Date: {{ diagnosis.examination_date | date:'dd.MM.yyyy' }}</div>
   </div>
   <div style="display: flex;flex-direction: column;padding: 5px;">
     {{ diagnosis.diagnosis }}
@@ -18,17 +24,5 @@
     <div style="width: 14%;">R: {{ diagnosis.r }}</div>
     <div style="width: 14%;">L: {{ diagnosis.l }}</div>
     <div style="width: 14%;">V: {{ diagnosis.v }}</div>
-  </div>
-  <div style="display: flex;flex-direction: row;border-top: 1px solid #4183c4;">
-    <b>Evaluation</b>
-  </div>
-  <div style="display: flex;flex-direction: row;border-top: 1px solid #4183c4;">
-    <div style="width: 14%;">T: <input type="text" [(ngModel)]="diagnosis.t"></div>
-    <div style="width: 14%;">N: <input type="text" [(ngModel)]="diagnosis.n"></div>
-    <div style="width: 14%;">M: <input type="text" [(ngModel)]="diagnosis.m"></div>
-    <div style="width: 14%;">G: <input type="text" [(ngModel)]="diagnosis.g"></div>
-    <div style="width: 14%;">R: <input type="text" [(ngModel)]="diagnosis.r"></div>
-    <div style="width: 14%;">L: <input type="text" [(ngModel)]="diagnosis.l"></div>
-    <div style="width: 14%;">V: <input type="text" [(ngModel)]="diagnosis.v"></div>
   </div>
 </div>

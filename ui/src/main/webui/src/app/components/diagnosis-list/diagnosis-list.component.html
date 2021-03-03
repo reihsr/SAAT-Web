@@ -1,1 +1,11 @@
-<app-saat-diagnosis [diagnosis]="diagnosis" *ngFor="let diagnosis of diagnosisList"></app-saat-diagnosis>
+
+
+<div class="card text-center m-3">
+  <h3 class="card-header">Mamma Diagnosis</h3>
+  <div class="card-body">
+    <app-saat-diagnosis [diagnosis]="diagnosis" *ngFor="let diagnosis of diagnosisList"></app-saat-diagnosis>
+  </div>
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination [diagnosis]="diagnosisList" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div>

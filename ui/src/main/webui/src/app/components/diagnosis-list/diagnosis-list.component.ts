@@ -14,9 +14,14 @@ export class DiagnosisListComponent implements OnInit {
   constructor(private diagnosisService: DiagnosisService) { }
 
   ngOnInit(): void {
-    this.diagnosisService.getDiagnosis(0, 10).subscribe(data => {
+    this.diagnosisService.getDiagnosis(0, 20).subscribe(data => {
       this.diagnosisList = data;
     })
+  }
+
+  onChangePage(diagnosisList: Array<any>) {
+    // update current page of items
+    this.diagnosisList = diagnosisList;
   }
 
 }
