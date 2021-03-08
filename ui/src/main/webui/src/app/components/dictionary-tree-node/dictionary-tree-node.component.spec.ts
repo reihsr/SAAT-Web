@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { DictionaryTreeNodeComponent } from './dictionary-tree-node.component';
 
@@ -6,7 +6,7 @@ describe('DictionaryTreeNodeComponent', () => {
   let component: DictionaryTreeNodeComponent;
   let fixture: ComponentFixture<DictionaryTreeNodeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DictionaryTreeNodeComponent ]
     })
