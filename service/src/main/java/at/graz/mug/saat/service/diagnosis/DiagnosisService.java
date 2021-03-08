@@ -14,6 +14,10 @@ public class DiagnosisService {
         this.diagnosis_repository = diagnosis_repository;
     }
 
+    public List<Diagnosis> getDiagnosis() {
+        return diagnosis_repository.getDiagnosis();
+    }
+
     public List<Diagnosis> getDiagnosis(Integer start, Integer limit) {
         return diagnosis_repository.getDiagnosis(start, limit);
     }

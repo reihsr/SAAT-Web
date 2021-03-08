@@ -22,6 +22,7 @@ import { DiagnosisListComponent } from './components/diagnosis-list/diagnosis-li
 import { MedicalTaggingComponent } from './components/medical-tagging/medical-tagging.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { OverlayComponent } from './components/overlay/overlay.component';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { OverlayComponent } from './components/overlay/overlay.component';
     MatButtonModule,
     MatIconModule,
     NgxGraphModule,
-    OverlayModule
+    OverlayModule,
+    JwPaginationModule
   ],
   providers: [DictionaryTreeNodeService],
   bootstrap: [AppComponent]

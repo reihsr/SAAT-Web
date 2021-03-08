@@ -16,7 +16,11 @@ export class DiagnosisService {
     this.getDiagnosisUrl = 'getDiagnosis';
   }
 
-  public getDiagnosis(start: number, limit: number): Observable<Diagnosis[]> {
+  public getDiagnosisWithLimit(start: number, limit: number): Observable<Diagnosis[]> {
     return this.http.get<Diagnosis[]>(this.apibaseurl + this.getDiagnosisUrl + '?start=' + start + '&limit=' + limit);
+  }
+
+  public getDiagnosis(): Observable<Diagnosis[]> {
+    return this.http.get<Diagnosis[]>(this.apibaseurl + this.getDiagnosisUrl);
   }
 }

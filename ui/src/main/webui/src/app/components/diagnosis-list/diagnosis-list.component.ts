@@ -10,18 +10,19 @@ import { DiagnosisService } from '../../service/diagnosis.service';
 export class DiagnosisListComponent implements OnInit {
 
   diagnosisList: Diagnosis[];
+  pageOfdiagnosis: Array<any>;
 
   constructor(private diagnosisService: DiagnosisService) { }
 
   ngOnInit(): void {
-    this.diagnosisService.getDiagnosis(0, 20).subscribe(data => {
+    this.diagnosisService.getDiagnosis().subscribe(data => {
       this.diagnosisList = data;
     })
   }
 
-  onChangePage(diagnosisList: Array<any>) {
+  onChangePage(pageOfdiagnosis: Array<any>) {
     // update current page of items
-    this.diagnosisList = diagnosisList;
+    this.pageOfdiagnosis = pageOfdiagnosis;
   }
 
 }
