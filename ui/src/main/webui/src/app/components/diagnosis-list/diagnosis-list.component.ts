@@ -15,7 +15,7 @@ export class DiagnosisListComponent implements OnInit {
   constructor(private diagnosisService: DiagnosisService) { }
 
   ngOnInit(): void {
-    this.diagnosisService.getDiagnosis().subscribe(data => {
+    this.diagnosisService.getDiagnosisWithLimit(0, 500).subscribe(data => {
       this.diagnosisList = data;
     })
   }

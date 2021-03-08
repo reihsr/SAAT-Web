@@ -6,6 +6,7 @@
     <app-saat-diagnosis [diagnosis]="diagnosis" *ngFor="let diagnosis of pageOfdiagnosis"></app-saat-diagnosis>
   </div>
   <div class="card-footer pb-0 pt-3">
-    <jw-pagination (changePage)="onChangePage($event)"></jw-pagination>
+    <jw-pagination [items]="diagnosisList" (changePage)="onChangePage($event)"></jw-pagination>
   </div>
 </div>
+

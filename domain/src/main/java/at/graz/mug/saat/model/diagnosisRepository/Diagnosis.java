@@ -17,11 +17,11 @@ public class Diagnosis {
     private Integer finding_id;
     private Long befund_id;
     private String aura_index;
-    private Integer patient_id;
+    private Long patient_id;
     private Integer age;
     private String examination_type;
     private Date examination_date;
-    private Integer examination_number;
+    private Long examination_number;
     private String diagnosis;
     private String diagnosis_clean;
     private String organ;
@@ -37,8 +37,8 @@ public class Diagnosis {
 
     public Diagnosis() {}
 
-    public Diagnosis(Integer finding_id, Long befund_id, String aura_index, Integer patient_id, Integer age, String examination_type,
-                     Date examination_date, Integer examination_number, String diagnosis, String diagnosis_clean, String organ,
+    public Diagnosis(Integer finding_id, Long befund_id, String aura_index, Long patient_id, Integer age, String examination_type,
+                     Date examination_date, Long examination_number, String diagnosis, String diagnosis_clean, String organ,
                      String organ_zuordnung, String source, String t, String n, String m, String g, String r, String l, String v) {
         this.finding_id = finding_id;
         this.befund_id = befund_id;

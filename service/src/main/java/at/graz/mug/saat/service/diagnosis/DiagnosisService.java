@@ -15,10 +15,10 @@ public class DiagnosisService {
     }
 
     public List<Diagnosis> getDiagnosis() {
-        return diagnosis_repository.getDiagnosis();
+        return diagnosis_repository.findAll();
     }
 
     public List<Diagnosis> getDiagnosis(Integer start, Integer limit) {
-        return diagnosis_repository.getDiagnosis(start, limit);
+        return diagnosis_repository.getDiagnosisWithLimit(start, limit);
     }
 }

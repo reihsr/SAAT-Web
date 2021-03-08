@@ -10,8 +10,5 @@ import java.util.List;
 public interface DiagnosisRepository extends JpaRepository<Diagnosis, Integer> {
 
     @Query(value = "SELECT * FROM saat.findings_materialized_view ORDER BY befund_id OFFSET :start LIMIT :limit", nativeQuery = true)
-    public List<Diagnosis> getDiagnosis(@Param("start") Integer start, @Param("limit") Integer limit);
-
-    @Query(value = "SELECT * FROM saat.findings_materialized_view ORDER BY befund_id", nativeQuery = true)
-    public List<Diagnosis> getDiagnosis();
+    public List<Diagnosis> getDiagnosisWithLimit(@Param("start") Integer start, @Param("limit") Integer limit);
 }

@@ -16,10 +16,16 @@ public class DiagnosisController {
     @Autowired
     private DiagnosisService service;
 
-    @GetMapping("getDiagnosis")
-    public List<Diagnosis> getDiagnosis(Integer start, Integer limit) {
+    @GetMapping("getDiagnosisWithLimit")
+    public List<Diagnosis> getDiagnosisWithLimit(Integer start, Integer limit) {
         System.out.println("Call to service get Diagnosis for " + start + " - " + limit);
         return service.getDiagnosis(start, limit);
+    }
+
+    @GetMapping("getDiagnosis")
+    public List<Diagnosis> getDiagnosis() {
+        System.out.println("Call to service get all Diagnosis");
+        return service.getDiagnosis();
     }
 
 }
